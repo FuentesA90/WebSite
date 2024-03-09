@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<h1>STATISTICS</h1>
+<h2> The t-test</h2>
+<p>
+    The t-test is the most basic type of staticial test. 
+    <br>It consists of comparing the mean between two groups of data to detrmine if they are signicantly different.</br>
+    <br>To illustrate the t-test, I will perform a sample t-test in two statistical progarms. R and Python. 
+</p>
+<h3>The Data</h3>
+<p>
+    The data utilized will be sample data provided in R (CO2 data). The dataset is titled "Carbon Dioxide Updtate in Grass Plants".
+    <br>There are five variables of data, and 84 observations.</br>
+    <br>The five variables consist of the following. Plant, Type, Treatment, conc, uptake </br>
+    <br> <strong>Plant:</strong>6 Levels [Qn1, Qn2, Qn3, Qc1, Qc2, Qc3] each with 7 observations. </br>
+    <br><strong>Type:</strong> 2 Levels [Quebec, Mississippi] each with 42 observations. </br>
+    <br><strong>Treatment:</strong> 2 levels [Chilled, nonchilled] each with 42 observations. </br>
+    <br><strong>conc:</strong> A continous variable represnting the carbon dioxide concentration </br>
+    <br><strong>uptake:</strong> A continous variable represnting the carbon dioxide uptake rate </br>
+    <br>The experiment consisted of taking 42 plants from Mississippi and 42 plants from Quebec. Treating them under with two treatments:chilled nonchilled. </br>
+    <br>And measuring their CO2 intake while taking into consideration the ambiend concentration of CO2. </br>
+</p>
+<h3>R</h3>
+<p>
+    <br><strong>Step 1:</strong> To obtain the data from R, we simply generate a dataframe with the following code. "data = CO2" </br>
+    <br><strong>Step 2:</strong> Export the data to be able to repeat the same test in python with the following code. "write.table(data, "data.txt",sep="\t")" </br>
+    <br><strong>Step 3:</strong> Next we will plot the updtake data based on the treatment type to visualize the mean value. "plot(data$uptake ~ data$Treatment)" </br>
+    <br> <img src="Fig1.png" alt="LA" style="width:25%"></br>
+    <br><strong>Step 4:</strong> Visually, we can see higher values of uptake for nonchilled treatments. Subsetting the data for each and estimating the mean reusults in the following: </br>
+    <br><li>Nonchilled: 30.64 </li> </br>
+    <br><li>Chilled: 23.78 </li> </br>
+    <br><strong>Step 5:</strong> Performing the two-sample t-test consists of running the following code: "t.test(data$uptake ~ data$Treatment)" </br>
+    <br><strong>Step 6:</strong> The null hypothesis for a two-sample t-test is that the mean value of both treatments are equal.  </br>
+    <br> <img src="Fig2.jpg" alt="LA" style="width:50%"></br>
+    <br><strong>Step 7:</strong> Therefore, with a p-value < 0.05, we reject the null hypothesis and state that there is sufficent evidence to state that the means of both treatments are not equal.  </br>
+</p>
+<h3>Python</h3>
+<body>
+    
+</body>
+</html>
