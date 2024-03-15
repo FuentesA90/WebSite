@@ -1,4 +1,17 @@
 <!DOCTYPE html>
+<style>
+    body {
+    width: 750px;
+    font-family: arial, verdana, sans-serif;
+    color: #6655544;}
+    h1 {
+        background-color: #efefef;
+        padding: 10px;}
+    p {
+        width: 450px;}
+</style>
+
+
 <html>
 <head>
     <meta charset="utf-8" />
@@ -33,13 +46,21 @@
     <br><strong>Step 1:</strong> To obtain the data from R, we simply generate a dataframe with the following code. "data = CO2" </br>
     <br><strong>Step 2:</strong> Export the data to be able to repeat the same test in python with the following code. "write.table(data, "data.txt",sep="\t")" </br>
     <br><strong>Step 3:</strong> Next we will plot the updtake data based on the treatment type to visualize the mean value. "plot(data$uptake ~ data$Treatment)" </br>
-    <br> <img src="Fig1.png" alt="LA" style="width:25%"></br>
+    <br> <img src="Fig1.png" alt="LA" style="width:100%"></br>
     <br><strong>Step 4:</strong> Visually, we can see higher values of uptake for nonchilled treatments. Subsetting the data for each and estimating the mean reusults in the following: </br>
     <br><li>Nonchilled: 30.64 </li> </br>
     <br><li>Chilled: 23.78 </li> </br>
     <br><strong>Step 5:</strong> Performing the two-sample t-test consists of running the following code: "t.test(data$uptake ~ data$Treatment)" </br>
     <br><strong>Step 6:</strong> The null hypothesis for a two-sample t-test is that the mean value of both treatments are equal.  </br>
-    <br> <img src="Fig2.jpg" alt="LA" style="width:50%"></br>
+    <br>Welch Two Sample t-test </br>
+    <br>data:  data$uptake by data$Treatment </br>
+    <br>t = 3.0485, df = 80.945, p-value = 0.003107 </br>
+    <br>alternative hypothesis: true difference in means between group nonchilled and group chilled is not equal to 0 </br>
+    <br>95 percent confidence interval: </br>
+    <br>2.382366 11.336682 </br>
+    <br>sample estimates: </br>
+    <br>mean in group nonchilled    mean in group chilled </br>
+    <br>                30.64286                 23.78333 </br>
     <br><strong>Step 7:</strong> Therefore, with a p-value < 0.05, we reject the null hypothesis and state that there is sufficent evidence to state that the means of both treatments are not equal.  </br>
 </p>
 <h3>Python</h3>
