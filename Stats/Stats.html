@@ -64,6 +64,26 @@
     <br><strong>Step 7:</strong> Therefore, with a p-value < 0.05, we reject the null hypothesis and state that there is sufficent evidence to state that the means of both treatments are not equal.  </br>
 </p>
 <h3>Python</h3>
+<p>
+    <br><strong>Step 1:</strong> Import the necesarry libraries.</br>
+    <br><strong>Step 1a:</strong> import pandas as pd </br>
+    <br><strong>Step 1b:</strong> from scipy import stats </br>
+    <br><strong>Step 1c:</strong> import seaborn as sns </br>
+    <br><strong>Step 2:</strong> The data from R had previusly been exported and saved as a text file. To import the data into Python we use the pandas library. </br>   
+    <br><strong>Step 2a:</strong> data = pd.read_csv("Downloads\data.txt",sep='\t') </br>
+    <br><strong>Step 3:</strong> Similarly, we will generate box-plots from the data to gauge the comparison.  </br>
+    <br><strong>Step 3a:</strong> sns.boxplot(x=data["Treatment"],y=data["uptake"])  </br>
+    <br> <img src="Fig2.png" alt="LA" style="width:100%"></br>
+    <br><strong>Step 4:</strong> Next, we will subset the data based on the treatment type to create two dataframes, respective to chilled and nonchilled treatments. </br>
+    <br><strong>Step 4a:</strong> chilled = data[data["Treatment"] == "chilled"] </br>
+    <br><strong>Step 4b:</strong> nonchilled = data[data["Treatment"] == "nonchilled"] </br>
+    <br><strong>Step 5:</strong> Next we will run the t-test in Python. </br>
+    <br><strong>Step 5a:</strong> stats.ttest_ind(chilled["uptake"],nonchilled["uptake"]) </br> 
+    <br><strong>Step 6:</strong> The Output: </br> 
+    <br>Ttest_indResult(statistic=-3.0484611149819503, pvalue=0.0030957332525416484) </br> 
+    <br><strong>Step 7:</strong> Therefore, with a p-value < 0.05, we reject the null hypothesis and state that there is sufficent evidence to state that the means of both treatments are not equal.  </br></0.05>
+ </br>
+</p>
 <body>
     
 </body>
