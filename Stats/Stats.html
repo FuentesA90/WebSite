@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <style>
     body {
-    width: 750px;
+    width: 1000px;
     font-family: arial, verdana, sans-serif;
     color: #6655544;}
     h1 {
+        text-align: center;
         background-color: #efefef;
         padding: 10px;}
+    h2 {text-align: center;
+        background-color: #efefef;}
+    h3 {text-align: center;
+        background-color: #efefef;}
+    h4 {text-align: left;}
     p {
+        text-align: left;
         width: 450px;}
 </style>
 
@@ -24,9 +31,12 @@
 <h1>STATISTICS</h1>
 <h2> The t-test</h2>
 <p>
-    The t-test is the most basic type of staticial test. 
-    <br>It consists of comparing the mean between two groups of data to detrmine if they are signicantly different.</br>
-    <br>To illustrate the t-test, I will perform a sample t-test in two statistical progarms. R and Python. 
+    The t-test is the most basic type of staticial test. It consists of comparing the mean between two cases to determine if they are significantly different from eachother. 
+    <br>Three types of t-tests can be perfomred.</br>
+    <li><strong>One Sample T-Test: </strong> Comparing the mean of a sample to a single mean value.</li>
+    <li><strong>Two Sample T-Test: </strong> Comparing the mean of two samples to eachother.</li>
+    <li><strong>Paired Sample T-Test: </strong> Comparing the mean of one sample before and after a treatment. </li>
+    <br>To illustrate the application of a t-test, I will perform a two-sample t-test in two statistical progarms. R and Python. 
 </p>
 <h3>The Data</h3>
 <p>
@@ -48,10 +58,12 @@
     <br><strong>Step 3:</strong> Next we will plot the updtake data based on the treatment type to visualize the mean value. "plot(data$uptake ~ data$Treatment)" </br>
     <br> <img src="Fig1.png" alt="LA" style="width:100%"></br>
     <br><strong>Step 4:</strong> Visually, we can see higher values of uptake for nonchilled treatments. Subsetting the data for each and estimating the mean reusults in the following: </br>
-    <br><li>Nonchilled: 30.64 </li> </br>
-    <br><li>Chilled: 23.78 </li> </br>
+    <li>Nonchilled: 30.64 </li>
+    <li>Chilled: 23.78 </li>
     <br><strong>Step 5:</strong> Performing the two-sample t-test consists of running the following code: "t.test(data$uptake ~ data$Treatment)" </br>
     <br><strong>Step 6:</strong> The null hypothesis for a two-sample t-test is that the mean value of both treatments are equal.  </br>
+</p>
+<h4>
     <br>Welch Two Sample t-test </br>
     <br>data:  data$uptake by data$Treatment </br>
     <br>t = 3.0485, df = 80.945, p-value = 0.003107 </br>
@@ -61,6 +73,8 @@
     <br>sample estimates: </br>
     <br>mean in group nonchilled    mean in group chilled </br>
     <br>                30.64286                 23.78333 </br>
+</h4>
+<p>
     <br><strong>Step 7:</strong> Therefore, with a p-value < 0.05, we reject the null hypothesis and state that there is sufficent evidence to state that the means of both treatments are not equal.  </br>
 </p>
 <h3>Python</h3>
@@ -79,8 +93,11 @@
     <br><strong>Step 4b:</strong> nonchilled = data[data["Treatment"] == "nonchilled"] </br>
     <br><strong>Step 5:</strong> Next we will run the t-test in Python. </br>
     <br><strong>Step 5a:</strong> stats.ttest_ind(chilled["uptake"],nonchilled["uptake"]) </br> 
-    <br><strong>Step 6:</strong> The Output: </br> 
-    <br>Ttest_indResult(statistic=-3.0484611149819503, pvalue=0.0030957332525416484) </br> 
+    <br><strong>Step 6:</strong> The Output: </br>
+<h4>
+    Ttest_indResult(statistic=-3.0484611149819503, pvalue=0.0030957332525416484)
+</h4>
+<p>   
     <br><strong>Step 7:</strong> Therefore, with a p-value < 0.05, we reject the null hypothesis and state that there is sufficent evidence to state that the means of both treatments are not equal.  </br></0.05>
  </br>
 </p>
