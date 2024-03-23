@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: lightblue;
+            color: #333;
+        }
+        header {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        footer {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>The t-test</h1>
+        <p></p>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>Overview</h2>
+            <p>The t-test is the most basic type of staticial test. It consists of comparing the mean between two cases to determine if they are significantly different from eachother. </p>
+            <p>Three types of t-tests can be perfomred.</p>
+            <li><strong>One Sample T-Test: </strong> Comparing the mean of a sample to a single mean value.</li>
+            <li><strong>Two Sample T-Test: </strong> Comparing the mean of two samples to eachother.</li>
+            <li><strong>Paired Sample T-Test: </strong> Comparing the mean of one sample before and after a treatment. </li>
+            <p>To illustrate the application of a t-test, I will perform a two-sample t-test in two statistical progarms. R and Python. </p>
+        </section>
+        <section>
+            <h2>The Data</h2>
+            <p>The data utilized will be sample data provided in R (CO2 data). The dataset is titled "Carbon Dioxide Updtate in Grass Plants".</p>
+            <p>There are five variables of data, and 84 observations.</p>
+            <p>The five variables consist of the following. Plant, Type, Treatment, conc, uptake </p>
+            <p><strong>Plant:</strong>6 Levels [Qn1, Qn2, Qn3, Qc1, Qc2, Qc3] each with 7 observations.</p>    
+            <p><strong>Type:</strong> 2 Levels [Quebec, Mississippi] each with 42 observations.</p> 
+            <p><strong>Treatment:</strong> 2 levels [Chilled, nonchilled] each with 42 observations. </p> 
+            <p><strong>conc:</strong> A continous variable represnting the carbon dioxide concentration </p> 
+            <p><strong>uptake:</strong> A continous variable represnting the carbon dioxide uptake rate </p> 
+            <p>The experiment consisted of taking 42 plants from Mississippi and 42 plants from Quebec. Treating them under with two treatments:chilled nonchilled. </p> 
+            <p>And measuring their CO2 intake while taking into consideration the ambiend concentration of CO2. </p> 
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Antonio Fuentes</p>
+    </footer>
+</body>
+</html>
