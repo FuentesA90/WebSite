@@ -15,7 +15,7 @@
     h4 {text-align: left;}
     p {
         text-align: left;
-        width: 450px;}
+        width: 700px;}
 </style>
 
 
@@ -28,79 +28,40 @@
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
 </head>
-<h1>The t-test</h1>
-<h2> Overview</h2>
-<p>
-    The t-test is the most basic type of staticial test. It consists of comparing the mean between two cases to determine if they are significantly different from eachother. 
-    <br>Three types of t-tests can be perfomred.</br>
-    <li><strong>One Sample T-Test: </strong> Comparing the mean of a sample to a single mean value.</li>
-    <li><strong>Two Sample T-Test: </strong> Comparing the mean of two samples to eachother.</li>
-    <li><strong>Paired Sample T-Test: </strong> Comparing the mean of one sample before and after a treatment. </li>
-    <br>To illustrate the application of a t-test, I will perform a two-sample t-test in two statistical progarms. R and Python. 
+<h1>The Titanic Dataset - Machine Learning From Disaster</h1>
+
+<h2>Overview</h2>
+<p>I will  to build my personal model for the Titanic Disaster famously hosted on Kaggle.
+    To begin, I will provide a brief description of the objective of the competition.
+ </p>
+    <p>The objective of this Kaggle competition is successfully predict how many passengers survived Titanic disaster. 
+        A dataset is provided with various variables. The target/response/independent variable is a binary response variable describing whether
+        the passenger survived (1) or perished (0).
 </p>
+<p>I will attempt to use the R statistical software as well as Python to devlop the models.</p>
+
 <h3>The Data</h3>
-<p>
-    The data utilized will be sample data provided in R (CO2 data). The dataset is titled "Carbon Dioxide Updtate in Grass Plants".
-    <br>There are five variables of data, and 84 observations.</br>
-    <br>The five variables consist of the following. Plant, Type, Treatment, conc, uptake </br>
-    <br> <strong>Plant:</strong>6 Levels [Qn1, Qn2, Qn3, Qc1, Qc2, Qc3] each with 7 observations. </br>
-    <br><strong>Type:</strong> 2 Levels [Quebec, Mississippi] each with 42 observations. </br>
-    <br><strong>Treatment:</strong> 2 levels [Chilled, nonchilled] each with 42 observations. </br>
-    <br><strong>conc:</strong> A continous variable represnting the carbon dioxide concentration </br>
-    <br><strong>uptake:</strong> A continous variable represnting the carbon dioxide uptake rate </br>
-    <br>The experiment consisted of taking 42 plants from Mississippi and 42 plants from Quebec. Treating them under with two treatments:chilled nonchilled. </br>
-    <br>And measuring their CO2 intake while taking into consideration the ambiend concentration of CO2. </br>
-</p>
+<p>As is typically provided by Kaggle. Two datasets in csv formats are available to download.</p>
+<p>The training set consists of 891 observations with 10 predictor/dependent variables and 1 independent variable “Survived". </p>
+<p>The test set consists of 418 observations with 10 predictor/dependent variables, the missing variable is the independent “Survived".</p>
+<p>The overall predictor/dependent variables are as follows:</p>
+<ul>
+        <li><strong>survival:</strong> 0=No, 1=Yes</li>
+        <li><strong>pclass:</strong> Ticket Class (1 = 1st Class, 2 = 2nd Class, 3 = 3rd Class)</li>
+        <li><strong>sex:</strong> male/female</li>
+        <li><strong>Age:</strong> Age of passenger (float)</li>
+        <li><strong>sibsp:</strong> # of Siblings</li>
+        <li><strong>parch:</strong> # of Parents</li>
+        <li><strong>ticket:</strong> Ticket number</li>
+        <li><strong>fare:</strong> Passenger fare</li>
+        <li><strong>cabin:</strong> Cibin number</li>
+        <li><strong>embarked:</strong> Port of Embarkation (C = Cherourg, Q = Queenstown, S = Southampton)</li>
+</ul>
+
 <h3>R</h3>
-<p>
-    <br><strong>Step 1:</strong> To obtain the data from R, we simply generate a dataframe with the following code. "data = CO2" </br>
-    <br><strong>Step 2:</strong> Export the data to be able to repeat the same test in python with the following code. "write.table(data, "data.txt",sep="\t")" </br>
-    <br><strong>Step 3:</strong> Next we will plot the updtake data based on the treatment type to visualize the mean value. "plot(data$uptake ~ data$Treatment)" </br>
-    <br> <img src="Fig1.png" alt="LA" style="width:100%"></br>
-    <br><strong>Step 4:</strong> Visually, we can see higher values of uptake for nonchilled treatments. Subsetting the data for each and estimating the mean reusults in the following: </br>
-    <li>Nonchilled: 30.64 </li>
-    <li>Chilled: 23.78 </li>
-    <br><strong>Step 5:</strong> Performing the two-sample t-test consists of running the following code: "t.test(data$uptake ~ data$Treatment)" </br>
-    <br><strong>Step 6:</strong> The null hypothesis for a two-sample t-test is that the mean value of both treatments are equal.  </br>
-</p>
-<h4>
-    <br>Welch Two Sample t-test </br>
-    <br>data:  data$uptake by data$Treatment </br>
-    <br>t = 3.0485, df = 80.945, p-value = 0.003107 </br>
-    <br>alternative hypothesis: true difference in means between group nonchilled and group chilled is not equal to 0 </br>
-    <br>95 percent confidence interval: </br>
-    <br>2.382366 11.336682 </br>
-    <br>sample estimates: </br>
-    <br>mean in group nonchilled    mean in group chilled </br>
-    <br>                30.64286                 23.78333 </br>
-</h4>
-<p>
-    <br><strong>Step 7:</strong> Therefore, with a p-value < 0.05, we reject the null hypothesis and state that there is sufficent evidence to state that the means of both treatments are not equal.  </br>
-</p>
+<p></p>
 <h3>Python</h3>
-<p>
-    <br><strong>Step 1:</strong> Import the necesarry libraries.</br>
-    <br><strong>Step 1a:</strong> import pandas as pd </br>
-    <br><strong>Step 1b:</strong> from scipy import stats </br>
-    <br><strong>Step 1c:</strong> import seaborn as sns </br>
-    <br><strong>Step 2:</strong> The data from R had previusly been exported and saved as a text file. To import the data into Python we use the pandas library. </br>   
-    <br><strong>Step 2a:</strong> data = pd.read_csv("Downloads\data.txt",sep='\t') </br>
-    <br><strong>Step 3:</strong> Similarly, we will generate box-plots from the data to gauge the comparison.  </br>
-    <br><strong>Step 3a:</strong> sns.boxplot(x=data["Treatment"],y=data["uptake"])  </br>
-    <br> <img src="Fig2.png" alt="LA" style="width:100%"></br>
-    <br><strong>Step 4:</strong> Next, we will subset the data based on the treatment type to create two dataframes, respective to chilled and nonchilled treatments. </br>
-    <br><strong>Step 4a:</strong> chilled = data[data["Treatment"] == "chilled"] </br>
-    <br><strong>Step 4b:</strong> nonchilled = data[data["Treatment"] == "nonchilled"] </br>
-    <br><strong>Step 5:</strong> Next we will run the t-test in Python. </br>
-    <br><strong>Step 5a:</strong> stats.ttest_ind(chilled["uptake"],nonchilled["uptake"]) </br> 
-    <br><strong>Step 6:</strong> The Output: </br>
-<h4>
-    Ttest_indResult(statistic=-3.0484611149819503, pvalue=0.0030957332525416484)
-</h4>
-<p>   
-    <br><strong>Step 7:</strong> Therefore, with a p-value < 0.05, we reject the null hypothesis and state that there is sufficent evidence to state that the means of both treatments are not equal.  </br></0.05>
- </br>
-</p>
+<p></p>
 <body>
     
 </body>
