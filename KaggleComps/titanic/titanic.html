@@ -31,14 +31,14 @@
 <h1>The Titanic Dataset - Machine Learning From Disaster</h1>
 
 <h2>Overview</h2>
-<p>I will  to build my personal model for the Titanic Disaster famously hosted on Kaggle.
+<p>I will build my personal model for the Titanic Disaster famously hosted on Kaggle.
     To begin, I will provide a brief description of the objective of the competition.
  </p>
     <p>The objective of this Kaggle competition is successfully predict how many passengers survived Titanic disaster. 
         A dataset is provided with various variables. The target/response/independent variable is a binary response variable describing whether
         the passenger survived (1) or perished (0).
 </p>
-<p>I will attempt to use the R statistical software as well as Python to devlop the models.</p>
+<p>I use the R statistical software as well as Python to develop the models.</p>
 
 <h3>The Data</h3>
 <p>As is typically provided by Kaggle. Two datasets in csv formats are available to download.</p>
@@ -49,7 +49,7 @@
         <li><strong>survival:</strong> 0=No, 1=Yes</li>
         <li><strong>pclass:</strong> Ticket Class (1 = 1st Class, 2 = 2nd Class, 3 = 3rd Class)</li>
         <li><strong>sex:</strong> male/female</li>
-        <li><strong>Age:</strong> Age of passenger (float)</li>
+        <li><strong>age:</strong> Age of passenger (float)</li>
         <li><strong>sibsp:</strong> # of Siblings</li>
         <li><strong>parch:</strong> # of Parents</li>
         <li><strong>ticket:</strong> Ticket number</li>
@@ -61,7 +61,48 @@
 <h3>R</h3>
 <p></p>
 <h3>Python</h3>
-<p></p>
+<p>
+    To begin the investigation, I will use the Anaconda Navigator to run the Spyder IDE. Some of the preliminary code I will run is presented in order below.
+    This code consists of importing the data, and then merging the training data frame and test data frame into a single data frame. 
+    This is done in case I’d like to modify some variables later on. 
+    This way, I can execute the changes into the merged data set instead of executing the changes in the training and test set individually. 
+</p>
+<p>
+    Some of the preliminary code I will run is presented in order below. 
+    This code consists of importing the data, and then merging the training data frame and test data frame into a single data frame. 
+    This is done in case I’d like to modify some variables later on. 
+    This way, I can execute the changes into the merged data set instead of executing the changes in the training and test set individually. 
+    After merging the data set, the first thing I’d like to evaluate is a correlation matrix. 
+    This will tell me if any two variables are highly correlated with each other. 
+    Which could influence any feature engineering we may like to do later.      
+</p>
+<p>corr = df_merge.corr()
+    <br> sns.heatmap(corr, xticklabels=corr.columns.values, yticklabels=corr.columns.values) </br>
+    <br> <img src="Figure1_Py.png" alt="LA" style="width:75%"></br>
+</p>
+<p>
+    By observing the figure, variables in the diagonal are highly correlated which is expected as it is the same variable. 
+    Focusing on the independent variable of “Survived”, we can see some variables that stand out: 
+    <li>Pclass</li>
+    <li>Age</li>
+    <li>Fare</li>
+</p>
+<p>
+    There are a few reasons why these ma stand out, passenger class could have had an influence on who got priority the enter the life boats. 
+    Age could have an influence as they may have pioritized children. One thing to note is that only variables shown on the correlation matrix are the integers. 
+    Typing in the following code for the Training Set we see some variables are missing. 
+    <br>titanic_TrainData.dtypes</br>
+    <li><strong>survival:</strong> int64</li>
+    <li><strong>pclass:</strong> int64</li>
+    <li><strong>sex:</strong> int64</li>
+    <li><strong>age:</strong> object</li>
+    <li><strong>sibsp:</strong> int64</li>
+    <li><strong>parch:</strong> int64</li>
+    <li><strong>ticket:</strong> object</li>
+    <li><strong>fare:</strong> float64</li>
+    <li><strong>cabin:</strong> object</li>
+    <li><strong>embarked:</strong> object</li>
+</p>
 <body>
     
 </body>
